@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: iron-veil-v20-server
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MAX_PLAYERS
+        value: "20"
+      - key: MATCH_DURATION_SECONDS
+        value: "300"
+      - key: LOBBY_AUTOSTART_SECONDS
+        value: "20"
